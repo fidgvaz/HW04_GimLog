@@ -11,8 +11,8 @@ import java.util.List;
 @Dao
 public interface GymLogDao {
 
-    @Query("SELECT * FROM gym_logs ORDER BY timestamp DESC")
-    List<GymLog> getAll();
+    @Query("SELECT * FROM gym_logs WHERE username = :u ORDER BY timestamp DESC")
+    List<GymLog> getAllForUser(String u);
 
     @Insert
     long insert(GymLog log);
