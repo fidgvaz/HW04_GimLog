@@ -1,4 +1,4 @@
-package edu.csumb.hw04_gimlog.;
+package edu.csumb.hw04_gimlog;
 
 import android.os.Bundle;
 
