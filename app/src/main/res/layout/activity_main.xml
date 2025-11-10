@@ -1,19 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <!-- Login row -->
+    <LinearLayout
+        android:id="@+id/loginPanel"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="username (use admin)"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"/>
+    </LinearLayout>
+
+    <!-- Add log row (hidden until logged in) -->
+    <LinearLayout
+        android:id="@+id/addPanel"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/etLog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Workout note (e.g., Bench 3x10)"/>
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"/>
+    </LinearLayout>
+
+    <!-- Logout (hidden until logged in) -->
+    <Button
+        android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Logout"
+        android:visibility="gone"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
